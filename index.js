@@ -1,17 +1,10 @@
 console.log(
-    ` Сделал только смену изображений по сезонам по клике кнопок +25
-    сделал переключение на темную/светлую тему ( не отображается нажатая кнопка в секции Portfoio/season) +15
-    и я не уверен работает ли кэширование изображений =(
-    
-    можете написать ваши ники в discord, господа проверяющие. возможно успею еще чтонибудь наШкодить до окончания кроссчека,
-    с уважением и пониманием)))
-    ================= правка ======================
-    - кнопки поправил теперь работают и в темной и светлой теме (при переключении темы нажатая кнопка меняет свой цвет)
-    - поправил блок en/ru который сыпался при разрешении примерно 800px
+    `
+    FEATURES:
+    - кнопки работают и в темной и светлой теме (при переключении темы нажатая кнопка меняет свой цвет)
+    - блок en/ru который сыпался при разрешении примерно 800px
     - кэширование тоже вроде работает
-    ================= правка ======================
-    добавил переключение языка
-    ИТОГО: ~ 65
+    - переключение языка
     `);
 
 
@@ -37,7 +30,7 @@ let navbar = document.querySelector('.burger-menu');
 
 document.querySelector('#burger-icon-btn').onclick = () =>{
     navbar.classList.toggle('active');
-    
+
 }
 
 
@@ -81,11 +74,11 @@ function changeImage(event) {
 
     console.log(event);
     portfolioImage.forEach((img, index) => img.src =`./assets/img/${s}/${index+1}.jpg`);
-    
+
     /* let activBtn= document.querySelector(`.btn-season-item[data-season =${s} ]`); */
-    
+
     changeClassActive(s);
-    
+
   }
 }
 
@@ -97,20 +90,20 @@ function changeClassActive(s){
   /* activBtn.classList.remove('active-button'); */
   activBtn.forEach((elem) => elem.classList.remove('active-button'));
   let goldenBtn= document.querySelector(`.btn-season-item[data-season =${s} ]`);
-  
+
   /* flag == 2 ? goldenBtn.classList.toggle('active-light'):goldenBtn.classList.toggle('active-button'); */
   goldenBtn.classList.toggle('active-button');
   getButtonBlack(goldenBtn);
-} 
+}
 
 function getButtonBlack(b){
   let activBtn = document.querySelectorAll(`button.btn-season-item`);
-  
+
   activBtn.forEach((elem) => elem.classList.remove('active-light'));
 
   let temp = document.querySelector(`.active-button`);
   temp.classList.add('active-light');
-  
+
   /* goldenBtn.classList.toggle('.active-button'); */
 }
 
@@ -119,48 +112,47 @@ const seasonsArr = ['winter', 'spring', 'summer', 'autumn'];
 
 /* console.log(seasonsArr); */
 
-const portfolioButtons = document.querySelector('.btn-season-item'); 
-const portfolioImages = document.querySelectorAll('.portfolio-image'); 
-/* console.log(portfolioImages); */
+const portfolioButtons = document.querySelector('.btn-season-item');
+const portfolioImages = document.querySelectorAll('.portfolio-image');
 
-portfolioBtns.addEventListener('click', (event) => changeImage(event)); 
- 
+portfolioBtns.addEventListener('click', (event) => changeImage(event));
+
 
 /* ========================== */
-function preloadSummerImages() { 
+function preloadSummerImages() {
  for(let i = 1; i <= 6; i++) {
    const img = new Image();
    img.src = `./assets/img/summer/${i}.jpg`;
    seasonsArr.push(img);
- } 
+ }
 }
 preloadSummerImages();
- 
-function preloadAutumnImages() { 
- for(let i = 1; i <= 6; i++) { 
-  const img = new Image(); 
+
+function preloadAutumnImages() {
+ for(let i = 1; i <= 6; i++) {
+  const img = new Image();
   img.src = `./assets/img/autumn/${i}.jpg`;
   seasonsArr.push(img);
- } 
-} 
-preloadAutumnImages(); 
+ }
+}
+preloadAutumnImages();
 
-function preloadWinterImages() { 
- for(let i = 1; i <= 6; i++) { 
-  const img = new Image(); 
+function preloadWinterImages() {
+ for(let i = 1; i <= 6; i++) {
+  const img = new Image();
   img.src = `./assets/img/winter/${i}.jpg`;
   seasonsArr.push(img);
- } 
-} 
-preloadWinterImages(); 
+ }
+}
+preloadWinterImages();
 
-function preloadSpringImages() { 
-  for(let i = 1; i <= 6; i++) { 
-  const img = new Image(); 
+function preloadSpringImages() {
+  for(let i = 1; i <= 6; i++) {
+  const img = new Image();
   img.src = `./assets/img/spring/${i}.jpg`;
  seasonsArr.push(img);
- } 
-} 
+ }
+}
 preloadSpringImages();
 /* console.log(seasonsArr); */
 /* смена темы */
@@ -169,20 +161,20 @@ preloadSpringImages();
 let switchMode = document.getElementById('switchMode');
 
 switchMode.onclick = function () {
-  
+
   let imgswitchMode = document.querySelector(".header-container button img");
   let theme = document.getElementById("theme-light"); //ловим тему по id
 
   if(theme.getAttribute("href") == "light-mode.css") {
     theme.href = "style.css";
     imgswitchMode.src="./assets/svg/sun.svg";
-    
+
   } else {
     theme.href = "light-mode.css";
     imgswitchMode.src="./assets/svg/lune.svg";
-    
+
   }
-  
+
 }
 
 /* ========================= */
@@ -283,7 +275,7 @@ const i18Obj = {
     'send-message': 'Отправить'
   }
 }
-/* Если вопрос был про то, как именно реализовать саму кнопку - все просто. Создаешь , две штуки с разными id. 
+/* Если вопрос был про то, как именно реализовать саму кнопку - все просто. Создаешь , две штуки с разными id.
 После этого JS-ом вешаешь обработчик событий. elementButton = document.getElementById(id);
 
 На него вешаешь обработчик - elementButtom.addEventListener("click", function(){тело функции}); */
@@ -307,13 +299,13 @@ y.addEventListener("click", x); */
 
 
 function getData() {
-  
-  
+
+
   inputs.forEach( function (radio){
     if (radio.checked){
       console.log(radio.value + " is checked");
       init = radio.value;
-      
+
       console.log("radio.checked=", radio.checked);//
       console.log("radio.value= ",radio.value);//получил ru
     }
@@ -321,13 +313,13 @@ function getData() {
       console.log(radio.value + " is not checked");
 
     });
-    
+
 
       console.log(init);
 
     getTranslate(init);
   }
-  
+
 
 
 
